@@ -1,26 +1,18 @@
 ---
 galaxy_info:
-  author: your name
-  description: 
-  company: your company (optional)
-  # Some suggested licenses:
-  # - BSD (default)
-  # - MIT
-  # - GPLv2
-  # - GPLv3
-  # - Apache
-  # - CC-BY
-  license: license (GPLv2, CC-BY, etc)
+  author: Valeriy Solovyov
+  description:
+  license: MIT
   min_ansible_version: 1.2
   #
   # Below are all platforms currently available. Just uncomment
   # the ones that apply to your role. If you don't see your 
   # platform on this list, let us know and we'll get it added!
   #
-  #platforms:
-  #- name: EL
-  #  versions:
-  #  - all
+  platforms:
+  - name: EL
+    versions:
+    - all
   #  - 5
   #  - 6
   #  - 7
@@ -28,16 +20,16 @@ galaxy_info:
   #  versions:
   #  - all
   #  - any
-  #- name: Fedora
-  #  versions:
+  - name: Fedora
+    versions:
   #  - all
   #  - 16
   #  - 17
   #  - 18
   #  - 19
   #  - 20
-  #  - 21
-  #  - 22
+    - 21
+    - 22
   #- name: Windows
   #  versions:
   #  - all
@@ -46,9 +38,9 @@ galaxy_info:
   #  versions:
   #  - all
   #  - any
-  #- name: opensuse
-  #  versions:
-  #  - all
+  - name: opensuse
+    versions:
+    - all
   #  - 12.1
   #  - 12.2
   #  - 12.3
@@ -75,9 +67,9 @@ galaxy_info:
   #  - 9.1
   #  - 9.1
   #  - 9.2
-  #- name: Ubuntu
-  #  versions:
-  #  - all
+  - name: Ubuntu
+    versions:
+    - all
   #  - lucid
   #  - maverick
   #  - natty
@@ -102,9 +94,9 @@ galaxy_info:
   #  versions:
   #  - all
   #  - any
-  #- name: Debian
-  #  versions:
-  #  - all
+  - name: Debian
+    versions:
+    - all
   #  - etch
   #  - jessie
   #  - lenny
@@ -114,7 +106,7 @@ galaxy_info:
   # Below are all categories currently available. Just as with
   # the platforms above, uncomment those that apply to your role.
   #
-  #categories:
+  categories:
   #- cloud
   #- cloud:ec2
   #- cloud:gce
@@ -127,9 +119,11 @@ galaxy_info:
   #- monitoring
   #- networking
   #- packaging
-  #- system
-  #- web
-dependencies: []
+  - system
+  - web
+dependencies:[]
+  #- weldpua2008.ansible-apache
+  #- weldpua2008.ansible-nginx
   # List your role dependencies here, one per line. Only
   # dependencies available via galaxy should be listed here.
   # Be sure to remove the '[]' above if you add dependencies
