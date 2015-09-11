@@ -1,0 +1,7 @@
+www_daemon: "apache2"
+php_modules:
+  - php5-curl
+  - php5-gd
+  - php5-mcrypt
+  - php5-intl
+  - php5-json

@@ -1,2 +1,3 @@
 ---
 # defaults file for ansible-php
+www_server: "apache"

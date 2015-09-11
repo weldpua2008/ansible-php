@@ -1,0 +1,30 @@
+---
+- name: Install base PHP packages
+  apt: pkg={{ item }}
+  with_items:
+    - php5
+    - php5-common
+    - php5-cli
+  tags:
+    - php
+
+- name: Install PHP extensions (modules)
+  apt: pkg={{ item.value }}
+  with_dict: php_modules
+  notify: restart-php-webserver
+  tags:
+    - php
+
+
+- name: Enable extensions (modules) for all SAPI's
+  command: php5enmod -s ALL {{ item.key }}
+  with_dict: php_modules
+  tags:
+    - php
+
+#- name: Copy PHP settings files
+#  template:
+#    src=php.ini.j2
+#    dest={{ item.value }}
+#  with_dict: php_settings_pathes
+#  notify: restart-php-webserver
