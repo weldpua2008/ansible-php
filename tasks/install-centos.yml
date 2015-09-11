@@ -3,8 +3,7 @@
   yum:
     name: "{{ item }}"
     state: installed
-
   with_items: php_packages
-  notify: restart webserver
+  notify: restart-php-webserver
   tags:
     - php

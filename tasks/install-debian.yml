@@ -7,7 +7,7 @@
 
 - name: Install PHP extensions (modules)
   apt: pkg={{ item.value }}
-  with_dict: php_modules
+  with_items: php_modules
   notify: restart-php-webserver
   tags:
     - php
@@ -15,7 +15,7 @@
 
 - name: Enable extensions (modules) for all SAPI's
   command: php5enmod -s ALL {{ item.key }}
-  with_dict: php_modules
+  with_items: php_modules
   tags:
     - php
 
