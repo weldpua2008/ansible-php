@@ -1,10 +1,7 @@
 ---
 - name: Install base PHP packages
   apt: pkg={{ item }}
-  with_items:
-    - php5
-    - php5-common
-    - php5-cli
+  with_items: php_packages
   tags:
     - php
 

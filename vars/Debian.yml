@@ -1,4 +1,8 @@
 www_daemon: "apache2"
+php_packages:
+  - php5
+  - php5-common
+  - php5-cli
 php_modules:
   - php5-curl
   - php5-gd

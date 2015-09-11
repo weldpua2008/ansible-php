@@ -1,0 +1,10 @@
+---
+- name: Ensure PHP packages are installed.
+  yum:
+    name: "{{ item }}"
+    state: installed
+
+  with_items: php_packages
+  notify: restart webserver
+  tags:
+    - php
