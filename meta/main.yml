@@ -121,7 +121,7 @@ galaxy_info:
   #- packaging
   - system
   - web
-  dependencies:[]
+dependencies: []
   #- weldpua2008.ansible-apache
   #- weldpua2008.ansible-nginx
   # List your role dependencies here, one per line. Only
