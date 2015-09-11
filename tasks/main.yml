@@ -9,3 +9,8 @@
   when: "ansible_os_family == 'Debian'"
   tags:
     - php
+
+- include: install-centos.yml
+  when: "ansible_os_family == 'RedHat'"
+  tags:
+    - php
