@@ -1,5 +1,8 @@
 language: python
 python: '2.7'
+language: ruby
+rvm:
+  - 1.9.3
 sudo: required
 env:
   #matrix:
@@ -18,12 +21,16 @@ env:
 services:
   - docker
 
-before_install:
+#before_install:
+install:
+  - sudo apt-get update -q
+  - sudo apt-get install -q virtualbox  --fix-missing # Everything falls apart here exactly.
   - wget https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.4_x86_64.deb
   - sudo dpkg -i vagrant_1.7.4_x86_64.deb
 #  - for image in debian_wheezy debian_jessie ubuntu_trusty centos_7 fedora_21; do docker pull philpep/testinfra:$image; done
-  - vagrant up #--provider=docker
-
+#  - sudo vagrant up --provider=VirtualBox
+script:
+  - sudo vagrant up # The error is only presented when executing vagrant up
 #script:
 #  - docker pull weldpua2008/docker-ansible:${OS_TYPE}${OS_VERSION}_v${ANSIBLE_VERSION}
 # Run tests in Container
