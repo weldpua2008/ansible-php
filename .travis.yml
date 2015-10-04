@@ -22,7 +22,7 @@ before_install:
   - wget https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.4_x86_64.deb
   - sudo dpkg -i vagrant_1.7.4_x86_64.deb
 #  - for image in debian_wheezy debian_jessie ubuntu_trusty centos_7 fedora_21; do docker pull philpep/testinfra:$image; done
-  - vagrant up --provider=docker
+  - vagrant up #--provider=docker
 
 #script:
 #  - docker pull weldpua2008/docker-ansible:${OS_TYPE}${OS_VERSION}_v${ANSIBLE_VERSION}
