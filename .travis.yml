@@ -9,7 +9,7 @@ env:
 #  - OS_TYPE=centos OS_VERSION=7 ANSIBLE_VERSION=1.9.2
   - OS_TYPE=ubuntu OS_VERSION=12.04 ANSIBLE_VERSION=1.9.2
   - OS_TYPE=ubuntu OS_VERSION=14.04 ANSIBLE_VERSION=1.9.2
-#  - OS_TYPE=fedora OS_VERSION=22
+#  - OS_TYPE=fedora OS_VERSION=22 ANSIBLE_VERSION=1.9.2
 
 #branches:
 #  only:
@@ -19,11 +19,16 @@ services:
   - docker
 
 before_install:
-  - docker pull weldpua2008/docker-ansible:${OS_TYPE}${OS_VERSION}_v${ANSIBLE_VERSION}
+  - sudo apt-get update
+  - sudo apt-get upgrade lxc-docker
+  - echo 'DOCKER_OPTS="-H tcp://127.0.0.1:2375 -H unix:///var/run/docker.sock -s devicemapper"' | sudo tee /etc/default/docker > /dev/null
+  - sudo service docker restart
+  - sleep 5
+  - sudo docker pull weldpua2008/docker-ansible:${OS_TYPE}${OS_VERSION}_v${ANSIBLE_VERSION}
 
 script:
  # Run tests in Container
- - docker run --privileged --rm=true -v `pwd`:/ansible-php:rw weldpua2008/docker-ansible:${OS_TYPE}${OS_VERSION}_v${ANSIBLE_VERSION} /bin/bash -c "/ansible-php/tests/test-in-docker-image.sh ${OS_TYPE} ${OS_VERSION} ${ANSIBLE_VERSION}"
+ - sudo docker run --privileged --rm=true -v `pwd`:/ansible-php:rw weldpua2008/docker-ansible:${OS_TYPE}${OS_VERSION}_v${ANSIBLE_VERSION} /bin/bash -c "/ansible-php/tests/test-in-docker-image.sh ${OS_TYPE} ${OS_VERSION} ${ANSIBLE_VERSION}"
 
 notifications:
   email: false
