@@ -25,8 +25,10 @@ fi
 #    fi
 #
 #fi
+
+ANSIBLE_VAR="restart_web_server=False"
 ANSIBLE_EXTRA_VARS=""
-if [ "${ANSIBLE_VAR}x" == "x" ];then
+if [ "${ANSIBLE_VAR}x" != "x" ];then
     ANSIBLE_EXTRA_VARS=" -e \"${ANSIBLE_VAR}\" "
 fi
 

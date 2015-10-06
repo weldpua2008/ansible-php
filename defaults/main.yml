@@ -1,3 +1,5 @@
 ---
 # defaults file for ansible-php
 www_server: "apache"
+restart_web_server: true
+apache_use_service: false
