@@ -1,4 +1,9 @@
 ---
+- debug:
+  msg: "{{ restart_web_server }}"
+  tags:
+    - php
+
 - name: Ensure PHP packages are installed.
   yum:
     name: "{{ item }}"
