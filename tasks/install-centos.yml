@@ -1,5 +1,6 @@
 ---
 - debug:  msg="{{ restart_web_server }}"
+  when: restart_web_server|bool and www_server == "apache"
   tags:
     - php
 
