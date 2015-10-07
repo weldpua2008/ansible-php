@@ -1,6 +1,5 @@
 ---
-- debug:
-  msg: "{{ restart_web_server }}"
+- debug:  msg="{{ restart_web_server }}"
   tags:
     - php
 
