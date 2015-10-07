@@ -11,6 +11,16 @@
     - php
 
 - include: install-centos.yml
-  when: "ansible_os_family == 'RedHat'"
+  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux' or ansible_distribution == 'RedHat'
   tags:
     - php
+
+- include: install-fedora.yml
+  when: ansible_distribution == "Fedora"
+  tags:
+    - php
+
+#- include: install-suse.yml
+#  when: ansible_distribution == 'SLES' or ansible_distribution == 'OES' or ansible_distribution == 'Suse'
+#  tags:
+#    - php
