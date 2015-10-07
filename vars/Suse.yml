@@ -1,0 +1,13 @@
+www_daemon: "httpd"
+php_modules: []
+php_packages:
+  - php5
+  - php5-devel
+  - php5-fpm
+  - php5-gd
+  - php5-mbstring
+  - php5-pdo
+  - php5-pear
+  - php5-xmlreader
+  - php5-xmlrpc
+  - php5-xmlwriter
