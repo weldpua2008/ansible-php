@@ -2,4 +2,6 @@
 # handlers file for ansible-php
 - name: restart-php-webserver
   service: "name={{ www_daemon }} state=restarted"
+  changed_when: false
   when: restart_web_server and www_server == "apache"
+

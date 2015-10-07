@@ -16,6 +16,7 @@
 - name: Enable extensions (modules) for all SAPI's
   command: php5enmod -s ALL {{ item }}
   when: ansible_distribution_major_version|int > 12
+  changed_when: false
   with_items: php_modules
   tags:
     - php
