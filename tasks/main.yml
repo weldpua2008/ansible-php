@@ -20,7 +20,7 @@
   tags:
     - php
 
-#- include: install-suse.yml
-#  when: ansible_distribution == 'SLES' or ansible_distribution == 'OES' or ansible_distribution == 'Suse'
-#  tags:
-#    - php
+- include: install-suse.yml
+  when: ansible_distribution == 'SLES' or ansible_distribution == 'OES' or ansible_distribution == 'Suse'
+  tags:
+    - php
