@@ -3,12 +3,19 @@
   when: restart_web_server|bool and www_server == "apache"
   tags:
     - php
-
 - name: Ensure PHP packages are installed.
   yum:
     name: "{{ item }}"
     state: installed
   with_items: php_packages
+  notify: restart-php-webserver
+  tags:
+    - php
+- name: Install PHP extensions (modules)
+  yum:
+    name: php-{{ item }}
+    state: installed
+  with_items: php_modules
   notify: restart-php-webserver
   tags:
     - php
