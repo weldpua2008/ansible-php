@@ -12,3 +12,12 @@
   notify: restart-php-webserver
   tags:
     - php
+
+- name: Install PHP extensions (modules)
+  yum:
+    name: php-{{ item }}
+    state: installed
+  with_items: php_modules
+  notify: restart-php-webserver
+  tags:
+    - php
